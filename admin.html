@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Desk</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <h1>Admin Desk</h1>
+
+    <p>
+        Personal Letters Management
+    </p>
+
+</header>
+
+
+<main class="admin-container">
+
+
+<section
+    id="loginSection"
+    class="panel"
+>
+
+    <h2>Admin Login</h2>
+
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Admin email"
+    >
+
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+    >
+
+
+    <button onclick="login()">
+        Login
+    </button>
+
+
+    <p id="loginMessage"></p>
+
+</section>
+
+
+
+<section
+    id="dashboard"
+    class="hidden"
+>
+
+
+<div class="dashboard-header">
+
+    <div>
+
+        <h2>
+            Letter Dashboard
+        </h2>
+
+        <p>
+            Create and manage your letters.
+        </p>
+
+    </div>
+
+
+    <button
+        onclick="logout()"
+        class="danger"
+    >
+        Logout
+    </button>
+
+</div>
+
+
+
+<section class="panel">
+
+    <h2>
+        Create New Letter
+    </h2>
+
+
+    <label>
+        Recipient Name
+    </label>
+
+
+    <input
+        type="text"
+        id="recipientName"
+        placeholder="Example: Maria Santos"
+    >
+
+
+    <label>
+        Batch
+    </label>
+
+
+    <select id="batch">
+
+        <option value="Batch 31">
+            Batch 31
+        </option>
+
+        <option value="Batch 32">
+            Batch 32
+        </option>
+
+        <option value="Team">
+            Team
+        </option>
+
+    </select>
+
+
+    <label>
+        Team
+    </label>
+
+
+    <input
+        type="text"
+        id="team"
+        placeholder="Example: Blue Team"
+    >
+
+
+    <label>
+        Letter
+    </label>
+
+
+    <textarea
+        id="letterContent"
+        placeholder="Write your personal letter here..."
+    ></textarea>
+
+
+    <button onclick="createLetter()">
+
+        Save Letter & Generate QR
+
+    </button>
+
+
+    <p id="createMessage"></p>
+
+</section>
+
+
+
+<section class="panel">
+
+    <div class="section-title">
+
+        <h2>
+            Your Letters
+        </h2>
+
+
+        <button onclick="loadLetters()">
+            Refresh
+        </button>
+
+    </div>
+
+
+    <div id="lettersList"></div>
+
+</section>
+
+
+
+<section class="panel">
+
+    <h2>
+        Replies
+    </h2>
+
+
+    <div id="repliesList">
+
+        No replies yet.
+
+    </div>
+
+</section>
+
+
+
+<section class="panel">
+
+    <h2>
+        Printable QR Codes
+    </h2>
+
+
+    <button onclick="printQRCodes()">
+
+        Print QR Codes
+
+    </button>
+
+
+    <div id="qrPrintArea"></div>
+
+</section>
+
+
+</section>
+
+
+</main>
+
+
+<script src="admin.js"></script>
+
+
+</body>
+
+</html>
