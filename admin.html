@@ -14,8 +14,10 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+    <!-- QR Code Generator -->
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 </head>
@@ -38,211 +40,223 @@
 <main class="admin-container">
 
 
-<section
-    id="loginSection"
-    class="panel"
->
+    <!-- LOGIN -->
 
-    <h2>Admin Login</h2>
-
-
-    <input
-        type="email"
-        id="email"
-        placeholder="Admin email"
+    <section
+        id="loginSection"
+        class="panel"
     >
 
+        <h2>Admin Login</h2>
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Password"
-    >
+        <input
+            type="email"
+            id="email"
+            placeholder="Admin email"
+        >
 
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
 
-    <button onclick="login()">
-        Login
-    </button>
-
-
-    <p id="loginMessage"></p>
-
-</section>
-
-
-
-<section
-    id="dashboard"
-    class="hidden"
->
-
-
-<div class="dashboard-header">
-
-    <div>
-
-        <h2>
-            Letter Dashboard
-        </h2>
-
-        <p>
-            Create and manage your letters.
-        </p>
-
-    </div>
-
-
-    <button
-        onclick="logout()"
-        class="danger"
-    >
-        Logout
-    </button>
-
-</div>
-
-
-
-<section class="panel">
-
-    <h2>
-        Create New Letter
-    </h2>
-
-
-    <label>
-        Recipient Name
-    </label>
-
-
-    <input
-        type="text"
-        id="recipientName"
-        placeholder="Example: Maria Santos"
-    >
-
-
-    <label>
-        Batch
-    </label>
-
-
-    <select id="batch">
-
-        <option value="Batch 31">
-            Batch 31
-        </option>
-
-        <option value="Batch 32">
-            Batch 32
-        </option>
-
-        <option value="Team">
-            Team
-        </option>
-
-    </select>
-
-
-    <label>
-        Team
-    </label>
-
-
-    <input
-        type="text"
-        id="team"
-        placeholder="Example: Blue Team"
-    >
-
-
-    <label>
-        Letter
-    </label>
-
-
-    <textarea
-        id="letterContent"
-        placeholder="Write your personal letter here..."
-    ></textarea>
-
-
-    <button onclick="createLetter()">
-
-        Save Letter & Generate QR
-
-    </button>
-
-
-    <p id="createMessage"></p>
-
-</section>
-
-
-
-<section class="panel">
-
-    <div class="section-title">
-
-        <h2>
-            Your Letters
-        </h2>
-
-
-        <button onclick="loadLetters()">
-            Refresh
+        <button onclick="login()">
+            Login
         </button>
 
-    </div>
+        <p id="loginMessage"></p>
 
-
-    <div id="lettersList"></div>
-
-</section>
+    </section>
 
 
 
-<section class="panel">
+    <!-- DASHBOARD -->
 
-    <h2>
-        Replies
-    </h2>
-
-
-    <div id="repliesList">
-
-        No replies yet.
-
-    </div>
-
-</section>
+    <section
+        id="dashboard"
+        class="hidden"
+    >
 
 
+        <div class="dashboard-header">
 
-<section class="panel">
+            <div>
 
-    <h2>
-        Printable QR Codes
-    </h2>
+                <h2>
+                    Letter Dashboard
+                </h2>
 
+                <p>
+                    Create and manage your letters.
+                </p>
 
-    <button onclick="printQRCodes()">
-
-        Print QR Codes
-
-    </button>
-
-
-    <div id="qrPrintArea"></div>
-
-</section>
+            </div>
 
 
-</section>
+            <button
+                onclick="logout()"
+                class="danger"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+
+        <!-- CREATE LETTER -->
+
+        <section class="panel">
+
+            <h2>
+                Create New Letter
+            </h2>
+
+
+            <label>
+                Recipient Name
+            </label>
+
+            <input
+                type="text"
+                id="recipientName"
+                placeholder="Example: Maria Santos"
+            >
+
+
+            <label>
+                Batch
+            </label>
+
+            <select id="batch">
+
+                <option value="Batch 31">
+                    Batch 31
+                </option>
+
+                <option value="Batch 32">
+                    Batch 32
+                </option>
+
+                <option value="Team">
+                    Team
+                </option>
+
+            </select>
+
+
+            <label>
+                Team
+            </label>
+
+            <input
+                type="text"
+                id="team"
+                placeholder="Example: Blue Team"
+            >
+
+
+            <label>
+                Letter
+            </label>
+
+            <textarea
+                id="letterContent"
+                placeholder="Write your personal letter here..."
+            ></textarea>
+
+
+            <button onclick="createLetter()">
+
+                Save Letter & Generate QR
+
+            </button>
+
+
+            <p id="createMessage"></p>
+
+        </section>
+
+
+
+        <!-- LETTERS -->
+
+        <section class="panel">
+
+            <div class="section-title">
+
+                <h2>
+                    Your Letters
+                </h2>
+
+
+                <button onclick="loadLetters()">
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <div id="lettersList">
+
+                <p>
+                    Loading letters...
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- REPLIES -->
+
+        <section class="panel">
+
+            <h2>
+                Replies
+            </h2>
+
+
+            <div id="repliesList">
+
+                No replies yet.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- QR CODES -->
+
+        <section class="panel">
+
+            <h2>
+                Printable QR Codes
+            </h2>
+
+
+            <button onclick="printQRCodes()">
+
+                Print QR Codes
+
+            </button>
+
+
+            <div id="qrPrintArea"></div>
+
+        </section>
+
+
+    </section>
 
 
 </main>
 
+
+<!-- IMPORTANT: admin.js must load after the HTML -->
 
 <script src="admin.js"></script>
 
