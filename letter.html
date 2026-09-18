@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Your Personal Letter</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <h1>
+        Personal Letter
+    </h1>
+
+</header>
+
+
+<main class="letter-container">
+
+
+<section id="loading">
+
+    <p>
+        Opening your letter...
+    </p>
+
+</section>
+
+
+
+<section
+    id="letterSection"
+    class="hidden"
+>
+
+
+<article class="letter-card">
+
+    <p id="batchDisplay"></p>
+
+    <h2 id="recipientDisplay"></h2>
+
+
+    <div
+        id="letterContent"
+        class="letter-content"
+    ></div>
+
+</article>
+
+
+
+<section class="reply-card">
+
+    <h2>
+        Write a Reply
+    </h2>
+
+
+    <p>
+        You can send a personal reply to the person
+        who wrote this letter.
+    </p>
+
+
+    <textarea
+        id="replyContent"
+        placeholder="Write your reply..."
+    ></textarea>
+
+
+    <button onclick="sendReply()">
+
+        Send Reply
+
+    </button>
+
+
+    <p id="replyMessage"></p>
+
+</section>
+
+
+</section>
+
+
+
+<section
+    id="errorSection"
+    class="hidden error"
+>
+
+    <h2>
+        Letter Not Found
+    </h2>
+
+
+    <p>
+        This letter code is invalid or the letter
+        no longer exists.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<script src="letter.js"></script>
+
+
+</body>
+
+</html>
