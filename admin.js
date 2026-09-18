@@ -1,8 +1,8 @@
 const SUPABASE_URL =
-    "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
-
-const SUPABASE_ANON_KEY =
-    "PASTE_YOUR_SUPABASE_ANON_KEY_HERE";
+‎    "https://hequpnbrqvcchinhaqfy.supabase.co/rest/v1/";
+‎
+‎const SUPABASE_ANON_KEY =
+‎    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhlcXVwbmJycXZjY2hpbmhhcWZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3MzcxNzgsImV4cCI6MjEwNTMxMzE3OH0.AMNE8lRwyzQrUUPx-L2xJ31u_SW3iAPESD7FJo5RlTg";
 
 
 const supabaseClient =
